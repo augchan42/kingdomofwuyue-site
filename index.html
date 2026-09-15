@@ -5,8 +5,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
+<script>
+(function(){
+ try{
+  var t=localStorage.getItem('theme');
+  if(t==='light'||t==='dark') document.documentElement.setAttribute('data-theme',t);
+ }catch(e){}
+})();
+</script>
 </head>
 <body>
+<div class="topbar">
+ <div class="theme" role="group" aria-label="Color theme">
+  <button type="button" data-theme-set="light">Light</button>
+  <button type="button" data-theme-set="dark">Dark</button>
+  <button type="button" data-theme-set="system">Auto</button>
+ </div>
+</div>
 <header>
  <div class="seal" aria-hidden="true"><span>吳</span><span>越</span></div>
  <div>

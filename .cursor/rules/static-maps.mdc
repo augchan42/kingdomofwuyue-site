@@ -8,7 +8,8 @@ alwaysApply: false
 
 - `index.html` — copy and structure only (header, mounts, timeline, footer).
 - `css/site.css` — theme tokens, layout, map/SVG presentation styles.
-- `js/site.js` — fetch `[data-map]` SVGs, stroke draw lengths, node tooltips.
+- `js/site.js` — theme switcher (`data-theme` + `localStorage`), fetch `[data-map]` SVGs, stroke draw lengths, node tooltips.
+- Theme tokens already support light/dark via `:root` / `data-theme` / `prefers-color-scheme`. Keep the small head script that restores `localStorage` theme before paint.
 - `maps/*.svg` — geography (`routes.svg`, `wuyue.svg`); keep dense path `d` attributes compact.
 
 ## Maps
