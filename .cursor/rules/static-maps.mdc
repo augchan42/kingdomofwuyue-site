@@ -1,13 +1,18 @@
 ---
-description: How map SVGs are organized in this static site
-globs: index.html,maps/**
+description: How static assets are organized in this site
+globs: index.html,css/**,js/**,maps/**
 alwaysApply: false
 ---
 
-# Map assets
+# Static site layout
 
-- Keep large geography in `maps/*.svg` (`routes.svg`, `wuyue.svg`), not inline in `index.html`.
-- Mount points use `data-map="maps/....svg"`; the page script fetches and injects SVG so `.node` / `.inode` tooltips work.
+- `index.html` — copy and structure only (header, mounts, timeline, footer).
+- `css/site.css` — theme tokens, layout, map/SVG presentation styles.
+- `js/site.js` — fetch `[data-map]` SVGs, stroke draw lengths, node tooltips.
+- `maps/*.svg` — geography (`routes.svg`, `wuyue.svg`); keep dense path `d` attributes compact.
+
+## Maps
+
+- Mount points use `data-map="maps/....svg"`; the script injects SVG so `.node` / `.inode` tooltips work.
 - Do not switch maps to `<img>` — that breaks tooltip DOM access.
-- Serve over HTTP (`npx serve .` / Vercel). `file://` cannot fetch the maps.
-- Leave dense path `d` attributes compact; edit labels/nodes in the SVG files, styles/copy in `index.html`.
+- Serve over HTTP (`npx serve .` / Vercel). `file://` cannot fetch maps or relative assets.

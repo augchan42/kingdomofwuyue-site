@@ -8,12 +8,14 @@ Google Fonts.
 
 | Path | Role |
 | --- | --- |
-| `index.html` | Page shell, styles, timeline, tooltip script |
+| `index.html` | Page shell, copy, timeline |
+| `css/site.css` | Theme tokens, layout, map styles |
+| `js/site.js` | Map fetch, draw animation, tooltips |
 | `maps/routes.svg` | India→Japan route map |
 | `maps/wuyue.svg` | Wuyue kingdom inset |
 
 Maps are fetched at runtime into `[data-map]` mounts so node tooltips stay in the DOM.
-Serve over HTTP (not `file://`), or the maps will not load.
+Serve over HTTP (not `file://`), or the maps and assets will not load.
 
 Source: Claude artifact https://claude.ai/artifact/8RScD7bpSLN4SU2H9piNT9
 
