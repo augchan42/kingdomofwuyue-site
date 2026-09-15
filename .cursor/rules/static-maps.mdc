@@ -1,0 +1,13 @@
+---
+description: How map SVGs are organized in this static site
+globs: index.html,maps/**
+alwaysApply: false
+---
+
+# Map assets
+
+- Keep large geography in `maps/*.svg` (`routes.svg`, `wuyue.svg`), not inline in `index.html`.
+- Mount points use `data-map="maps/....svg"`; the page script fetches and injects SVG so `.node` / `.inode` tooltips work.
+- Do not switch maps to `<img>` — that breaks tooltip DOM access.
+- Serve over HTTP (`npx serve .` / Vercel). `file://` cannot fetch the maps.
+- Leave dense path `d` attributes compact; edit labels/nodes in the SVG files, styles/copy in `index.html`.
